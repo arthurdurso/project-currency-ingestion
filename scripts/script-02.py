@@ -1,24 +1,15 @@
-# Testing FreeCurrencyAPI with requests library
+# Pipeline script for ingesting from FreeCurrency API using DLT
 
-import requests
-import os
-from dotenv import load_dotenv
 
-load_dotenv()
+import dlt
+from ingestion.source import freecurrency_source
 
-url = "https://api.freecurrencyapi.com/v1/latest"
-
-response = requests.get(
-    url,
-    params={
-        "apikey": os.getenv("SOURCES__SOURCE__FREECURRENCYAPI__API_KEY"),
-        "base_currency": "BRL",
-        "currencies": "USD,EUR,JPY"
-    }
+pipeline = dlt.pipeline(
+    pipeline_name="freecurrency_pipeline",
+    destination="filesystem",   # salva em disco local
+    dataset_name="latest",
 )
 
-STATUS_CODE = response.status_code
-data = response.json()
-
-print("\nStatus Code:", STATUS_CODE)
-print("\nData:", data)
+source = freecurrency_source(api_key=dlt.secrets.value)
+load_info = pipeline.run(source, loader_file_format="parquet")
+print(load_info)
