@@ -1,3 +1,5 @@
+# Testing FreeCurrencyAPI with requests library
+
 import requests
 import os
 from dotenv import load_dotenv

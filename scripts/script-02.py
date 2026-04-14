@@ -1,3 +1,5 @@
+# Testing FreeCurrencyAPI with requests library
+
 import requests
 import os
 from dotenv import load_dotenv
@@ -14,8 +16,6 @@ response = requests.get(
         "currencies": "USD,EUR,JPY"
     }
 )
-
-
 
 STATUS_CODE = response.status_code
 data = response.json()
