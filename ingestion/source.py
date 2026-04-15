@@ -49,7 +49,6 @@ def latest_rates(
             "currencies": currencies,
         },
         timeout=30,
-        verify=False,
     )
 
     response.raise_for_status()
