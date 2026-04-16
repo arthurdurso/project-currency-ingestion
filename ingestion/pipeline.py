@@ -17,10 +17,10 @@ def build_pipeline() -> dlt.Pipeline:
         bucket_url=bucket_url,
         credentials={
             "aws_access_key_id": os.environ[
-                "MINIO_ACCESS_KEY"
+                "MINIO_ROOT_USER"
             ],
             "aws_secret_access_key": os.environ[
-                "MINIO_SECRET_KEY"
+                "MINIO_ROOT_PASSWORD"
             ],
             "endpoint_url": os.environ[
                 "MINIO_ENDPOINT_URL"
