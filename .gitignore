@@ -1,5 +1,7 @@
-Example
+# Personal secrets file
+.dlt/secrets.toml
 projetos-engenharia-de-dados-para-iniciantes-abril-2026-main
+
 # Created by https://www.toptal.com/developers/gitignore/api/python
 # Edit at https://www.toptal.com/developers/gitignore?templates=python
 
@@ -127,7 +129,6 @@ celerybeat.pid
 
 # Environments
 .env
-.dlt/secrets.toml
 .venv
 env/
 venv/
