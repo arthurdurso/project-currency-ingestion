@@ -1,17 +1,23 @@
-# Imagem base oficial do Airflow com Python 3.11
-FROM apache/airflow:2.9.1-python3.11
+# Official Airflow base image with Python 3.13
+# This already includes Airflow installed and properly configured
+FROM apache/airflow:3.2.0-python3.13
 
-# Instala o uv — gerenciador de pacotes rápido que substitui o pip
-# A versão é fixada para garantir reprodutibilidade
-COPY --from=ghcr.io/astral-sh/uv:0.9.0 /uv /home/airflow/.local/bin/uv
+# Install Poetry (dependency manager)
+# Version is pinned to ensure reproducibility across environments
+ENV POETRY_VERSION=2.1.3 \
+    POETRY_VIRTUALENVS_CREATE=false \
+    POETRY_NO_INTERACTION=1
 
-# Copia os arquivos de definição de dependências
-# O uv.lock garante que todo mundo instala exatamente as mesmas versões
-COPY pyproject.toml uv.lock /opt/airflow/
-
-# Instala as dependências usando o lockfile
-# uv export converte o lockfile para requirements.txt
-# pip install garante que os pacotes vão para /home/airflow/.local (usuário airflow)
+# Set working directory inside the container
 WORKDIR /opt/airflow
-RUN uv export --frozen --no-dev --no-emit-project -o /tmp/requirements.txt && \
-    pip install --no-cache-dir -r /tmp/requirements.txt
+
+# Copy dependency definition files into the container
+# poetry.lock ensures all dependencies are installed with exact versions
+COPY pyproject.toml poetry.lock /opt/airflow/
+
+# Install Poetry and project dependencies
+# --without dev → install only production dependencies
+# --no-root → do not install the project itself as a package
+# Dependencies are installed directly into the container environment
+RUN pip install --no-cache-dir "poetry==$POETRY_VERSION" && \
+    poetry install --no-root
