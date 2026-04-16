@@ -436,17 +436,10 @@ gitpython = ">=3.1.29"
 giturlparse = ">=0.10.0"
 humanize = ">=4.4.0"
 jsonpath-ng = ">=1.5.3,<1.8"
-orjson = [
-    {version = ">=3.11.0,<4", markers = "platform_python_implementation != \"PyPy\" and sys_platform != \"emscripten\" and python_version > \"3.13\""},
-    {version = ">3.10.1,<4", markers = "platform_python_implementation != \"PyPy\" and sys_platform != \"emscripten\""},
-    {version = ">=3.11.0", markers = "(platform_python_implementation == \"PyPy\" or sys_platform == \"emscripten\") and python_version > \"3.13\""},
-]
+orjson = {version = ">3.10.1,<4", markers = "platform_python_implementation != \"PyPy\" and sys_platform != \"emscripten\""}
 packaging = ">=21.1"
 pathvalidate = ">=2.5.2"
-pendulum = [
-    {version = ">=3.0.0", markers = "python_version > \"3.13\""},
-    {version = ">=2.1.2"},
-]
+pendulum = ">=2.1.2"
 pluggy = ">=1.3.0"
 pyarrow = {version = ">=16.0.0", optional = true, markers = "extra == \"parquet\""}
 pytz = ">=2022.6"
@@ -1069,7 +1062,7 @@ description = "Fast, correct Python JSON library supporting dataclasses, datetim
 optional = false
 python-versions = ">=3.10"
 groups = ["main"]
-markers = "platform_python_implementation != \"PyPy\" and sys_platform != \"emscripten\" or python_version > \"3.13\""
+markers = "platform_python_implementation != \"PyPy\" and sys_platform != \"emscripten\""
 files = [
     {file = "orjson-3.11.8-cp310-cp310-macosx_10_15_x86_64.macosx_11_0_arm64.macosx_10_15_universal2.whl", hash = "sha256:e6693ff90018600c72fd18d3d22fa438be26076cd3c823da5f63f7bab28c11cb"},
     {file = "orjson-3.11.8-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:93de06bc920854552493c81f1f729fab7213b7db4b8195355db5fda02c7d1363"},
@@ -1218,10 +1211,7 @@ files = [
 ]
 
 [package.dependencies]
-numpy = [
-    {version = ">=2.3.3", markers = "python_version >= \"3.14\""},
-    {version = ">=1.26.0", markers = "python_version < \"3.14\""},
-]
+numpy = {version = ">=1.26.0", markers = "python_version < \"3.14\""}
 python-dateutil = ">=2.8.2"
 tzdata = {version = "*", markers = "sys_platform == \"win32\" or sys_platform == \"emscripten\""}
 
@@ -2343,5 +2333,5 @@ propcache = ">=0.2.1"
 
 [metadata]
 lock-version = "2.1"
-python-versions = ">=3.13,<3.15"
-content-hash = "3d8e873f247126b8661f1a5d58fc35382940cbf77540fe3906178511cb575b63"
+python-versions = "==3.13.*"
+content-hash = "edef0708c3b9916613f98d19267dc9f78b3cc05cb9dbd231e965fca4dfaad537"
