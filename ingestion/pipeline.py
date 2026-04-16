@@ -11,19 +11,19 @@ logger = logging.getLogger(__name__)
 
 def build_pipeline() -> dlt.Pipeline:
     """Builds and returns the dlt pipeline configured for MinIO."""
-    bucket_url = os.environ["DESTINATION__FILESYSTEM__BUCKET_URL"]
+    bucket_url = os.environ["MINIO_BUCKET_URL"]
     
     destination = filesystem(
         bucket_url=bucket_url,
         credentials={
             "aws_access_key_id": os.environ[
-                "DESTINATION__FILESYSTEM__CREDENTIALS__AWS_ACCESS_KEY_ID"
+                "MINIO_ACCESS_KEY"
             ],
             "aws_secret_access_key": os.environ[
-                "DESTINATION__FILESYSTEM__CREDENTIALS__AWS_SECRET_ACCESS_KEY"
+                "MINIO_SECRET_KEY"
             ],
             "endpoint_url": os.environ[
-                "DESTINATION__FILESYSTEM__CREDENTIALS__ENDPOINT_URL"
+                "MINIO_ENDPOINT_URL"
             ],
         },
     )
