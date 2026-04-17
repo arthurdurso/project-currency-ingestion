@@ -6,7 +6,7 @@
 
 ## 📌 Sobre o Projeto
 
-O **Currency Data Ingestion Pipeline** é um projeto de engenharia de dados que automatiza a extração de dados de câmbio a partir da [FreeCurrency API](https://freecurrencyapi.com/), orquestra a execução com **Apache Airflow** e armazena os dados em formato **Parquet** no **MinIO** — um storage S3-compatible.
+A **Pipeline de Ingestão de Dados Cambiais** é um projeto de engenharia de dados que automatiza a extração de dados de câmbio a partir da [FreeCurrency API](https://freecurrencyapi.com/), orquestra a execução com **Apache Airflow** e armazena os dados em formato **Parquet** no **MinIO** — um storage S3-compatible.
 
 O projeto simula um fluxo real de Data Engineering com orquestração, versionamento e armazenamento eficiente, servindo como referência de boas práticas para pipelines de ingestão de dados.
 
