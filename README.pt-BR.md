@@ -1,4 +1,4 @@
-# 💱 Currency Data Ingestion Pipeline
+# 💱 Pipeline de Ingestão de Dados Cambiais com Python, Airflow e Docker
 
 > Pipeline de ingestão de dados de câmbio com orquestração via Apache Airflow, armazenamento eficiente em Parquet e ambiente totalmente containerizado.
 

@@ -1,4 +1,6 @@
-# 💱 Currency Data Ingestion Pipeline
+🔗 Este documento também está disponível em [Português](./README.pt-BR.md).
+
+# 💱 Foreign Exchange Data Ingestion Pipeline with Python, Airflow, and Docker
 
 > Exchange rate data ingestion pipeline orchestrated with Apache Airflow, efficient Parquet storage, and a fully containerized environment.
 
